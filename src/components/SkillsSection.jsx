@@ -63,20 +63,20 @@ export const SkillsSection = () => {
     : [selectedCategory];
 
   return (
-    <section id="skills" className="space-y-6 pt-6">
+    <section id="skills" className="space-y-6 pt-6 reveal-on-scroll">
       
       {/* Section Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-lavender-700 dark:text-lavender-400">
+            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400">
               02 // Technical Competencies
             </span>
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
             Technical Skills & Tooling
           </h2>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
             Structured into 5 professional tracks. Realistically evaluated according to current academic stage.
           </p>
         </div>
@@ -84,7 +84,7 @@ export const SkillsSection = () => {
         {isAdminMode && (
           <button
             onClick={() => setIsAdminModalOpen(true)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-lavender-700 text-white shadow-soft-purple hover:bg-lavender-800 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-sky-600 hover:bg-sky-500 text-white shadow-soft-purple transition-colors btn-hover"
           >
             <Plus className="w-3.5 h-3.5" />
             <span>Add / Edit Skills</span>
@@ -100,9 +100,9 @@ export const SkillsSection = () => {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-3 py-1.5 rounded-xl text-xs font-medium whitespace-nowrap transition-all ${
+              className={`px-3 py-1.5 rounded-xl text-xs font-medium whitespace-nowrap transition-all btn-hover ${
                 isSelected
-                  ? 'bg-lavender-700 text-white shadow-soft-purple font-semibold'
+                  ? 'bg-sky-600 text-white shadow-soft-purple font-semibold'
                   : 'bg-white dark:bg-darkbg-card text-slate-600 dark:text-slate-300 border border-lavender-200/80 dark:border-darkbg-border hover:bg-lavender-50 dark:hover:bg-darkbg-hover'
               }`}
             >
@@ -122,11 +122,11 @@ export const SkillsSection = () => {
           return (
             <div 
               key={catName} 
-              className="p-5 rounded-3xl bg-white dark:bg-darkbg-card border border-lavender-200/80 dark:border-darkbg-border shadow-sm space-y-4"
+              className="p-5 rounded-3xl bg-white dark:bg-darkbg-card border border-lavender-200/80 dark:border-darkbg-border shadow-soft-navy space-y-4"
             >
               <div className="flex items-center justify-between border-b border-slate-100 dark:border-darkbg-border pb-3">
                 <div className="flex items-center gap-2.5">
-                  <div className="p-2 rounded-xl bg-lavender-100 dark:bg-darkbg-surface text-lavender-700 dark:text-lavender-300">
+                  <div className="p-2 rounded-xl bg-sky-50 dark:bg-navy-800 text-sky-600 dark:text-sky-300">
                     <CategoryIcon className="w-4 h-4" />
                   </div>
                   <div>
@@ -145,14 +145,14 @@ export const SkillsSection = () => {
                 {categorySkills.map((skill) => (
                   <div
                     key={skill.id}
-                    className="p-3.5 rounded-2xl bg-lavender-50/50 dark:bg-darkbg-surface border border-lavender-100 dark:border-darkbg-border hover:border-lavender-300 dark:hover:border-lavender-700 transition-all flex flex-col justify-between"
+                    className="p-3.5 rounded-2xl bg-lavender-50/50 dark:bg-darkbg-surface border border-lavender-100 dark:border-darkbg-border card-hover flex flex-col justify-between"
                   >
                     <div>
                       <div className="flex items-start justify-between gap-2">
                         <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
                           {skill.name}
                         </h4>
-                        <span className="shrink-0 px-2 py-0.5 rounded-md text-[10px] font-mono font-medium bg-lavender-100 dark:bg-darkbg-card text-lavender-800 dark:text-lavender-300 border border-lavender-200 dark:border-darkbg-border">
+                        <span className="shrink-0 px-2 py-0.5 rounded-md text-[10px] font-mono font-medium bg-lavender-100 dark:bg-navy-800 text-lavender-900 dark:text-sky-200 border border-lavender-200 dark:border-darkbg-border badge-hover">
                           {skill.stage}
                         </span>
                       </div>
@@ -168,13 +168,13 @@ export const SkillsSection = () => {
                     <div className="mt-3 pt-2 border-t border-slate-200/50 dark:border-darkbg-border/60">
                       <div className="flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400 mb-1">
                         <span>Confidence Level</span>
-                        <span className="font-mono font-medium text-lavender-700 dark:text-lavender-400">
+                        <span className="font-mono font-medium text-sky-600 dark:text-sky-400">
                           {skill.level}%
                         </span>
                       </div>
-                      <div className="w-full h-1.5 bg-lavender-200/70 dark:bg-darkbg-card rounded-full overflow-hidden">
+                      <div className="w-full h-1.5 bg-lavender-200/70 dark:bg-navy-800 rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-gradient-to-r from-lavender-600 to-purple-600 rounded-full transition-all duration-500"
+                          className="h-full bg-gradient-to-r from-sky-500 via-blue-500 to-lavender-600 rounded-full transition-all duration-500"
                           style={{ width: `${skill.level}%` }}
                         />
                       </div>

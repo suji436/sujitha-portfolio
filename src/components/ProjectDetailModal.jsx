@@ -182,7 +182,7 @@ export const ProjectDetailModal = () => {
                 href={selectedProject.liveUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-lavender-700 text-white hover:bg-lavender-800 shadow-soft-purple transition-all"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-sky-600 hover:bg-sky-500 text-white shadow-soft-purple transition-all btn-hover"
               >
                 <span>Live Demo</span>
                 <ExternalLink className="w-3.5 h-3.5" />

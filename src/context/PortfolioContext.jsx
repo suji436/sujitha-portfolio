@@ -3,8 +3,8 @@ import { initialPortfolioData } from '../data/portfolioData';
 
 const PortfolioContext = createContext(null);
 
-const STORAGE_KEY = 'sujitha_portfolio_data_v1';
-const THEME_KEY = 'sujitha_portfolio_theme_v1';
+const STORAGE_KEY = 'sujitha_portfolio_data_v3';
+const THEME_KEY = 'sujitha_portfolio_theme_v3';
 
 export const PortfolioProvider = ({ children }) => {
   // Load data from localStorage or fallback
@@ -12,7 +12,15 @@ export const PortfolioProvider = ({ children }) => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        // Ensure new fields like phone exist
+        return {
+          ...parsed,
+          profile: {
+            ...initialPortfolioData.profile,
+            ...parsed.profile,
+          }
+        };
       }
     } catch (e) {
       console.error('Failed to parse saved portfolio data', e);

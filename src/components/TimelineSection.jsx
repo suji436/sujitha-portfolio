@@ -29,20 +29,20 @@ export const TimelineSection = () => {
   });
 
   return (
-    <section id="activities" className="space-y-6 pt-6">
+    <section id="activities" className="space-y-6 pt-6 reveal-on-scroll">
       
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-lavender-700 dark:text-lavender-400">
+            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400">
               06 // Experiential Journey
             </span>
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
             Workshops, Events & Campus Activities
           </h2>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
             Chronological timeline of workshops, developer hackathons, and innovation cell activities.
           </p>
         </div>
@@ -50,7 +50,7 @@ export const TimelineSection = () => {
         {isAdminMode && (
           <button
             onClick={() => setIsAdminModalOpen(true)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-lavender-700 text-white shadow-soft-purple hover:bg-lavender-800 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-sky-600 hover:bg-sky-500 text-white shadow-soft-purple transition-colors btn-hover"
           >
             <Plus className="w-3.5 h-3.5" />
             <span>Add / Edit Event</span>
@@ -64,10 +64,10 @@ export const TimelineSection = () => {
           <div key={event.id} className="relative group">
             
             {/* Timeline Dot Indicator */}
-            <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-darkbg-card border-4 border-lavender-600 dark:border-lavender-400 group-hover:scale-125 transition-transform" />
+            <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-darkbg-card border-4 border-sky-500 dark:border-sky-400 group-hover:scale-125 transition-transform" />
 
             {/* Event Content Card */}
-            <div className="p-5 rounded-3xl bg-white dark:bg-darkbg-card border border-lavender-200/80 dark:border-darkbg-border shadow-sm hover:shadow-soft-purple transition-all duration-300 space-y-3">
+            <div className="p-5 rounded-3xl bg-white dark:bg-darkbg-card border border-lavender-200/80 dark:border-darkbg-border shadow-soft-navy card-hover transition-all duration-300 space-y-3">
               
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div className="flex items-center gap-2 flex-wrap">

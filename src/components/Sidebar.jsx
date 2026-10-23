@@ -11,6 +11,7 @@ import {
   Milestone, 
   Lightbulb, 
   Mail, 
+  Phone,
   ExternalLink,
   Github,
   Linkedin,
@@ -42,7 +43,7 @@ export const Sidebar = ({ isOpen, closeSidebar }) => {
     { id: 'activities', label: 'Events & Timeline', icon: CalendarDays, badge: stats.totalActivities },
     { id: 'roadmap', label: 'ML Roadmap', icon: Milestone, badge: `${stats.roadmapProgress}%` },
     { id: 'research', label: 'Research & Ideas', icon: Lightbulb, badge: '4' },
-    { id: 'contact', label: 'Get in Touch', icon: Mail, badge: null },
+    { id: 'contact', label: 'Contact Me', icon: Mail, badge: null },
   ];
 
   const handleNavClick = (id) => {
@@ -53,6 +54,12 @@ export const Sidebar = ({ isOpen, closeSidebar }) => {
       el.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const emailAddress = profile.email || "sujisri73@gmail.com";
+  const phoneNumber = profile.phone || "+91 99430 63536";
+  const phoneTel = profile.phoneTel || "+919943063536";
+  const linkedInUrl = profile.linkedinUrl || "https://www.linkedin.com/in/sujitha-gurumoorthy-18989b39b/";
+  const githubUrl = profile.githubUrl || "https://github.com/suji436";
 
   return (
     <>
@@ -72,13 +79,13 @@ export const Sidebar = ({ isOpen, closeSidebar }) => {
         {/* Navigation list */}
         <div className="flex-1 overflow-y-auto px-3 py-4 space-y-1">
           {/* Quick Profile Summary Card */}
-          <div className="mb-4 p-3 rounded-2xl bg-lavender-50 dark:bg-darkbg-card border border-lavender-200/60 dark:border-darkbg-border">
+          <div className="mb-4 p-3 rounded-2xl bg-lavender-50 dark:bg-darkbg-card border border-lavender-200/60 dark:border-darkbg-border card-hover">
             <div className="flex items-center gap-3">
               <div className="relative">
                 <img 
                   src={profile.avatar} 
                   alt={profile.name}
-                  className="w-10 h-10 rounded-full object-cover ring-2 ring-lavender-400 dark:ring-lavender-600"
+                  className="w-10 h-10 rounded-full object-cover ring-2 ring-sky-400 dark:ring-sky-500"
                 />
                 <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-darkbg-surface"></span>
               </div>
@@ -86,7 +93,7 @@ export const Sidebar = ({ isOpen, closeSidebar }) => {
                 <h4 className="text-xs font-bold text-slate-900 dark:text-white truncate">
                   {profile.name}
                 </h4>
-                <p className="text-[10px] text-lavender-700 dark:text-lavender-300 truncate">
+                <p className="text-[10px] text-sky-700 dark:text-sky-300 truncate">
                   {profile.careerGoal}
                 </p>
               </div>
@@ -94,11 +101,11 @@ export const Sidebar = ({ isOpen, closeSidebar }) => {
             
             <div className="mt-2.5 pt-2 border-t border-lavender-200/60 dark:border-darkbg-border flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
               <span className="text-[10px]">Roadmap Progress</span>
-              <span className="font-mono font-semibold text-lavender-700 dark:text-lavender-400">{stats.roadmapProgress}%</span>
+              <span className="font-mono font-semibold text-sky-600 dark:text-sky-400">{stats.roadmapProgress}%</span>
             </div>
-            <div className="w-full h-1.5 bg-lavender-200 dark:bg-darkbg-surface rounded-full mt-1 overflow-hidden">
+            <div className="w-full h-1.5 bg-lavender-200 dark:bg-navy-800 rounded-full mt-1 overflow-hidden">
               <div 
-                className="h-full bg-gradient-to-r from-lavender-500 to-purple-600 rounded-full transition-all duration-500" 
+                className="h-full bg-gradient-to-r from-sky-500 via-blue-500 to-lavender-600 rounded-full transition-all duration-500" 
                 style={{ width: `${stats.roadmapProgress}%` }}
               />
             </div>
@@ -115,9 +122,9 @@ export const Sidebar = ({ isOpen, closeSidebar }) => {
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all btn-hover ${
                   isActive
-                    ? 'bg-lavender-700 text-white shadow-soft-purple font-semibold'
+                    ? 'bg-gradient-to-r from-sky-600 to-blue-700 text-white shadow-soft-purple font-semibold'
                     : 'text-slate-600 dark:text-slate-300 hover:bg-lavender-100/70 dark:hover:bg-darkbg-card hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
@@ -129,7 +136,7 @@ export const Sidebar = ({ isOpen, closeSidebar }) => {
                   <span className={`text-[10px] px-1.5 py-0.5 rounded-md font-mono ${
                     isActive 
                       ? 'bg-white/20 text-white' 
-                      : 'bg-lavender-100 dark:bg-darkbg-card text-lavender-800 dark:text-lavender-300 border border-lavender-200/50 dark:border-darkbg-border'
+                      : 'bg-lavender-100 dark:bg-navy-800 text-slate-700 dark:text-sky-300 border border-lavender-200/50 dark:border-darkbg-border'
                   }`}>
                     {item.badge}
                   </span>
@@ -145,38 +152,43 @@ export const Sidebar = ({ isOpen, closeSidebar }) => {
           {/* Social Links */}
           <div className="flex items-center justify-around py-1">
             <a
-              href={profile.githubUrl}
+              href={githubUrl}
               target="_blank"
               rel="noreferrer"
-              className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-lavender-100 dark:hover:bg-darkbg-card transition-colors"
-              title="GitHub Profile"
+              className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-lavender-100 dark:hover:bg-darkbg-card transition-colors btn-hover"
+              title="GitHub Profile (Opens in new tab)"
             >
               <Github className="w-4 h-4" />
             </a>
-            {profile.linkedinUrl && (
-              <a
-                href={profile.linkedinUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-lavender-100 dark:hover:bg-darkbg-card transition-colors"
-                title="LinkedIn Profile"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-            )}
+            <a
+              href={linkedInUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-lavender-100 dark:hover:bg-darkbg-card transition-colors btn-hover"
+              title="LinkedIn Profile (Opens in new tab)"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
+            <a
+              href={`mailto:${emailAddress}`}
+              className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-lavender-100 dark:hover:bg-darkbg-card transition-colors btn-hover"
+              title="Send Email"
+            >
+              <Mail className="w-4 h-4" />
+            </a>
+            <a
+              href={`tel:${phoneTel}`}
+              className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-lavender-100 dark:hover:bg-darkbg-card transition-colors btn-hover"
+              title={`Call: ${phoneNumber}`}
+            >
+              <Phone className="w-4 h-4" />
+            </a>
             <button
               onClick={() => setIsAdminModalOpen(true)}
-              className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-lavender-700 dark:hover:text-lavender-300 hover:bg-lavender-100 dark:hover:bg-darkbg-card transition-colors"
-              title="Open Admin Dashboard"
+              className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-lavender-700 dark:hover:text-sky-300 hover:bg-lavender-100 dark:hover:bg-darkbg-card transition-colors btn-hover"
+              title="Open Admin Studio"
             >
               <Sliders className="w-4 h-4" />
-            </button>
-            <button
-              onClick={exportDataJSON}
-              className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-emerald-600 hover:bg-lavender-100 dark:hover:bg-darkbg-card transition-colors"
-              title="Backup Portfolio (JSON)"
-            >
-              <Download className="w-4 h-4" />
             </button>
           </div>
 

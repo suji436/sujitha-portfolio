@@ -31,7 +31,7 @@ export const CertificatesSection = () => {
   });
 
   return (
-    <section id="certificates" className="space-y-6 pt-6">
+    <section id="certificates" className="space-y-6 pt-6 reveal-on-scroll">
       
       {/* Modal for certificate inspection */}
       <CertificateModal />
@@ -40,14 +40,14 @@ export const CertificatesSection = () => {
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-lavender-700 dark:text-lavender-400">
+            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400">
               05 // Verified Credentials
             </span>
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
             Certificates & Achievements
           </h2>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
             Verified course completions, developer badges, and collegiate symposium/expo awards.
           </p>
         </div>
@@ -55,7 +55,7 @@ export const CertificatesSection = () => {
         {isAdminMode && (
           <button
             onClick={() => setIsAdminModalOpen(true)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-lavender-700 text-white shadow-soft-purple hover:bg-lavender-800 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-sky-600 hover:bg-sky-500 text-white shadow-soft-purple transition-colors btn-hover"
           >
             <Plus className="w-3.5 h-3.5" />
             <span>Add / Edit Certificate</span>
@@ -71,7 +71,7 @@ export const CertificatesSection = () => {
           return (
             <div
               key={cert.id}
-              className="p-5 rounded-3xl bg-white dark:bg-darkbg-card border border-lavender-200/80 dark:border-darkbg-border shadow-sm hover:shadow-soft-purple hover:border-lavender-400 dark:hover:border-lavender-600 transition-all duration-300 flex flex-col justify-between space-y-4"
+              className="p-5 rounded-3xl bg-white dark:bg-darkbg-card border border-lavender-200/80 dark:border-darkbg-border shadow-soft-navy card-hover flex flex-col justify-between space-y-4"
             >
               <div>
                 {/* Top Row: Category & Status */}

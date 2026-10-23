@@ -4,7 +4,7 @@ import {
   Github, 
   Linkedin, 
   Mail, 
-  Heart, 
+  Phone,
   ArrowUp, 
   ExternalLink,
   Sparkles,
@@ -19,60 +19,79 @@ export const Footer = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const emailAddress = profile.email || "sujisri73@gmail.com";
+  const phoneNumber = profile.phone || "+91 99430 63536";
+  const phoneTel = profile.phoneTel || "+919943063536";
+  const linkedInUrl = profile.linkedinUrl || "https://www.linkedin.com/in/sujitha-gurumoorthy-18989b39b/";
+  const githubUrl = profile.githubUrl || "https://github.com/suji436";
+
   return (
-    <footer id="contact" className="mt-16 border-t border-lavender-200/80 dark:border-darkbg-border bg-white/60 dark:bg-darkbg-surface/60 backdrop-blur-md pt-12 pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+    <footer className="mt-16 border-t border-lavender-200/80 dark:border-darkbg-border bg-white/70 dark:bg-darkbg-surface/70 backdrop-blur-md pt-10 pb-8 reveal-on-scroll">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
-        {/* Contact Banner */}
-        <div className="rounded-3xl bg-gradient-to-r from-lavender-700 via-purple-700 to-lavender-900 text-white p-6 sm:p-10 shadow-glow-purple relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div className="space-y-2 max-w-xl">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-white/10 backdrop-blur-md text-lavender-100 border border-white/10">
-              <Sparkles className="w-3.5 h-3.5 text-lavender-300" />
-              <span>Let's Connect & Collaborate</span>
-            </span>
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight">
-              Looking for an AI/ML Intern or Research Collaborator?
-            </h3>
-            <p className="text-xs sm:text-sm text-lavender-100/90 leading-relaxed">
-              I am open to machine learning engineering internships, AI agent research projects, and developer hackathon collaborations. Feel free to reach out directly.
-            </p>
+        {/* Quick Connection Strip */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 p-5 rounded-2xl bg-lavender-50/70 dark:bg-navy-900/60 border border-lavender-200/70 dark:border-darkbg-border">
+          <div className="flex items-center gap-3 text-center md:text-left">
+            <div className="w-8 h-8 rounded-xl bg-sky-600 flex items-center justify-center text-white font-bold text-xs shrink-0">
+              SG
+            </div>
+            <div>
+              <p className="text-xs font-bold text-slate-900 dark:text-white">
+                {profile.name} — AI/ML Engineer Track
+              </p>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                Sir Issac Newton College of Engineering and Technology, Nagapattinam
+              </p>
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-2">
             <a
-              href={`mailto:${profile.email}`}
-              className="flex items-center gap-2 px-5 py-3 rounded-2xl font-semibold text-xs sm:text-sm bg-white text-lavender-900 hover:bg-lavender-50 shadow-md transition-all duration-300"
+              href={`mailto:${emailAddress}`}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-white dark:bg-darkbg-card text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-darkbg-border hover:text-sky-600 dark:hover:text-sky-400 btn-hover"
+              title="Send email"
             >
-              <Mail className="w-4 h-4 text-lavender-700" />
-              <span>Send Email</span>
+              <Mail className="w-3.5 h-3.5" />
+              <span>{emailAddress}</span>
             </a>
 
             <a
-              href={profile.githubUrl}
+              href={`tel:${phoneTel}`}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-white dark:bg-darkbg-card text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-darkbg-border hover:text-emerald-600 dark:hover:text-emerald-400 font-mono btn-hover"
+              title="Call phone number"
+            >
+              <Phone className="w-3.5 h-3.5" />
+              <span>{phoneNumber}</span>
+            </a>
+
+            <a
+              href={linkedInUrl}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 px-5 py-3 rounded-2xl font-semibold text-xs sm:text-sm bg-white/15 hover:bg-white/25 text-white border border-white/20 backdrop-blur-md transition-all duration-300"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-blue-50 dark:bg-navy-800 text-blue-700 dark:text-sky-300 border border-blue-200 dark:border-blue-900/40 btn-hover"
+              title="LinkedIn (Opens in new tab)"
             >
-              <Github className="w-4 h-4" />
-              <span>GitHub</span>
+              <Linkedin className="w-3.5 h-3.5" />
+              <span>LinkedIn</span>
+              <ExternalLink className="w-3 h-3 text-blue-400" />
             </a>
 
-            {profile.linkedinUrl && (
-              <a
-                href={profile.linkedinUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2 px-5 py-3 rounded-2xl font-semibold text-xs sm:text-sm bg-blue-600/80 hover:bg-blue-600 text-white border border-blue-400/30 backdrop-blur-md transition-all duration-300"
-              >
-                <Linkedin className="w-4 h-4" />
-                <span>LinkedIn</span>
-              </a>
-            )}
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-100 dark:bg-darkbg-card text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-darkbg-border btn-hover"
+              title="GitHub (Opens in new tab)"
+            >
+              <Github className="w-3.5 h-3.5" />
+              <span>GitHub</span>
+              <ExternalLink className="w-3 h-3 text-slate-400" />
+            </a>
           </div>
         </div>
 
         {/* Links and Metadata */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-darkbg-border/60 pt-6">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-darkbg-border/60 pt-4">
           <div className="flex items-center gap-2">
             <span className="font-semibold text-slate-800 dark:text-slate-200">{profile.name}</span>
             <span>•</span>
@@ -84,7 +103,7 @@ export const Footer = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={() => setIsAdminModalOpen(true)}
-              className="hover:text-lavender-700 dark:hover:text-lavender-300 transition-colors"
+              className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
             >
               Portfolio Studio
             </button>

@@ -23,20 +23,20 @@ export const RoadmapSection = () => {
   } = usePortfolio();
 
   return (
-    <section id="roadmap" className="space-y-6 pt-6">
+    <section id="roadmap" className="space-y-6 pt-6 reveal-on-scroll">
       
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-lavender-700 dark:text-lavender-400">
+            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400">
               07 // Career Development Track
             </span>
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
             Machine Learning Engineer Roadmap
           </h2>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
             Interactive goal tracker. Click any milestone checkbox to update progress in real time.
           </p>
         </div>
@@ -44,7 +44,7 @@ export const RoadmapSection = () => {
         {isAdminMode && (
           <button
             onClick={() => setIsAdminModalOpen(true)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-lavender-700 text-white shadow-soft-purple hover:bg-lavender-800 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-sky-600 hover:bg-sky-500 text-white shadow-soft-purple transition-colors btn-hover"
           >
             <Plus className="w-3.5 h-3.5" />
             <span>Manage Milestones</span>
@@ -53,11 +53,11 @@ export const RoadmapSection = () => {
       </div>
 
       {/* Dynamic Progress Overview Card */}
-      <div className="p-6 rounded-3xl bg-gradient-to-r from-lavender-100/90 via-purple-50/70 to-white dark:from-darkbg-card dark:via-darkbg-surface dark:to-darkbg-card border border-lavender-200/80 dark:border-darkbg-border shadow-sm space-y-4">
+      <div className="p-6 rounded-3xl bg-gradient-to-r from-sky-50 via-white to-lavender-50 dark:from-navy-950 dark:via-darkbg-card dark:to-navy-950 border border-lavender-200/80 dark:border-darkbg-border shadow-soft-navy space-y-4">
         
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div>
-            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-lavender-800 dark:text-lavender-300">
+            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-sky-800 dark:text-sky-300">
               Target Role: Machine Learning Engineer
             </span>
             <h3 className="text-lg font-extrabold text-slate-900 dark:text-white mt-0.5">
@@ -66,7 +66,7 @@ export const RoadmapSection = () => {
           </div>
 
           <div className="text-right">
-            <span className="text-3xl font-extrabold text-lavender-700 dark:text-lavender-400 font-mono">
+            <span className="text-3xl font-extrabold text-sky-600 dark:text-sky-400 font-mono">
               {stats.roadmapProgress}%
             </span>
             <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
@@ -76,9 +76,9 @@ export const RoadmapSection = () => {
         </div>
 
         {/* Dynamic Progress Bar */}
-        <div className="w-full h-3 bg-lavender-200/70 dark:bg-darkbg-surface rounded-full overflow-hidden p-0.5 border border-lavender-300/40 dark:border-darkbg-border">
+        <div className="w-full h-3 bg-lavender-200/70 dark:bg-navy-800 rounded-full overflow-hidden p-0.5 border border-lavender-300/40 dark:border-darkbg-border">
           <div 
-            className="h-full bg-gradient-to-r from-lavender-600 via-purple-600 to-emerald-500 rounded-full transition-all duration-700"
+            className="h-full bg-gradient-to-r from-sky-500 via-blue-500 to-emerald-500 rounded-full transition-all duration-700"
             style={{ width: `${stats.roadmapProgress}%` }}
           />
         </div>
@@ -98,10 +98,10 @@ export const RoadmapSection = () => {
             <div
               key={item.id}
               onClick={() => toggleMilestone(item.id)}
-              className={`cursor-pointer p-4 rounded-2xl border transition-all duration-300 flex items-start gap-4 ${
+              className={`cursor-pointer p-4 rounded-2xl border transition-all duration-300 flex items-start gap-4 card-hover ${
                 isDone
                   ? 'bg-white/80 dark:bg-darkbg-card/70 border-emerald-200/70 dark:border-emerald-900/40 hover:border-emerald-400 shadow-sm'
-                  : 'bg-white dark:bg-darkbg-card border-lavender-200/80 dark:border-darkbg-border hover:border-lavender-400 dark:hover:border-lavender-600 shadow-sm'
+                  : 'bg-white dark:bg-darkbg-card border-lavender-200/80 dark:border-darkbg-border hover:border-sky-400 dark:hover:border-sky-500/50 shadow-sm'
               }`}
             >
               {/* Checkbox Trigger */}

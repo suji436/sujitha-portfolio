@@ -88,13 +88,13 @@ export const DashboardMetrics = () => {
   };
 
   return (
-    <div id="overview" className="space-y-4 pt-2">
+    <div id="overview" className="space-y-4 pt-2 reveal-on-scroll">
       
       {/* Welcome Banner */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-lavender-100/80 via-white to-lavender-100/50 dark:from-darkbg-surface dark:via-darkbg-card dark:to-darkbg-surface border border-lavender-200/70 dark:border-darkbg-border">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-sky-50 via-white to-lavender-50 dark:from-navy-900 dark:via-darkbg-card dark:to-navy-950 border border-lavender-200/70 dark:border-darkbg-border shadow-soft-navy">
         <div>
           <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-lavender-700 dark:text-lavender-400" />
+            <Sparkles className="w-4 h-4 text-sky-600 dark:text-sky-400" />
             <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white tracking-tight">
               Welcome, Sujitha — Your AI/ML Career Journey
             </h2>
@@ -105,7 +105,7 @@ export const DashboardMetrics = () => {
         </div>
 
         <div className="flex items-center gap-2 self-end sm:self-auto text-xs font-mono text-slate-500 dark:text-slate-400 bg-white/70 dark:bg-darkbg-surface px-3 py-1.5 rounded-xl border border-lavender-200/60 dark:border-darkbg-border">
-          <Clock className="w-3.5 h-3.5 text-lavender-600" />
+          <Clock className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
           <span>Active Academic Year: 2024–2026</span>
         </div>
       </div>
@@ -118,14 +118,14 @@ export const DashboardMetrics = () => {
             <button
               key={card.id}
               onClick={() => handleCardClick(card.sectionTarget)}
-              className={`group text-left p-4 rounded-2xl bg-white dark:bg-darkbg-card border ${card.borderAccent} shadow-sm hover:shadow-soft-purple hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between`}
+              className={`group text-left p-4 rounded-2xl bg-white dark:bg-darkbg-card border ${card.borderAccent} shadow-sm card-hover flex flex-col justify-between`}
             >
               <div>
                 <div className="flex items-center justify-between">
                   <div className={`p-2 rounded-xl ${card.badgeBg}`}>
                     <Icon className="w-4 h-4" />
                   </div>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-300 dark:text-slate-600 group-hover:text-lavender-600 dark:group-hover:text-lavender-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-300 dark:text-slate-600 group-hover:text-sky-600 dark:group-hover:text-sky-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
 
                 <div className="mt-3">

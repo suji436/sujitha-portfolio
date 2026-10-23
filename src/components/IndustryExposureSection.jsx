@@ -27,13 +27,13 @@ export const IndustryExposureSection = () => {
   const otherItems = industryExposure.filter(e => e.company !== 'Google' && e.company !== 'NVIDIA');
 
   return (
-    <section id="industry" className="space-y-6 pt-6">
+    <section id="industry" className="space-y-6 pt-6 reveal-on-scroll">
       
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-lavender-700 dark:text-lavender-400">
+            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400">
               04 // Ecosystem Engagements
             </span>
           </div>
@@ -48,7 +48,7 @@ export const IndustryExposureSection = () => {
         {isAdminMode && (
           <button
             onClick={() => setIsAdminModalOpen(true)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-lavender-100 dark:bg-darkbg-card text-lavender-800 dark:text-lavender-200 border border-lavender-200 dark:border-darkbg-border hover:bg-lavender-200 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-lavender-100 dark:bg-navy-800 text-slate-800 dark:text-sky-200 border border-lavender-200 dark:border-darkbg-border hover:bg-lavender-200 btn-hover transition-colors"
           >
             <Edit3 className="w-3.5 h-3.5" />
             <span>Edit Industry Details</span>
@@ -61,7 +61,7 @@ export const IndustryExposureSection = () => {
         
         {/* Google Card */}
         {googleItem && (
-          <div className="rounded-3xl bg-white dark:bg-darkbg-card border border-lavender-200/80 dark:border-darkbg-border p-6 shadow-sm flex flex-col justify-between space-y-4 relative overflow-hidden">
+          <div className="rounded-3xl bg-white dark:bg-darkbg-card border border-lavender-200/80 dark:border-darkbg-border p-6 shadow-soft-navy card-hover flex flex-col justify-between space-y-4 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
             
             <div className="space-y-4">
@@ -120,7 +120,7 @@ export const IndustryExposureSection = () => {
 
         {/* NVIDIA Card */}
         {nvidiaItem && (
-          <div className="rounded-3xl bg-white dark:bg-darkbg-card border border-lavender-200/80 dark:border-darkbg-border p-6 shadow-sm flex flex-col justify-between space-y-4 relative overflow-hidden">
+          <div className="rounded-3xl bg-white dark:bg-darkbg-card border border-lavender-200/80 dark:border-darkbg-border p-6 shadow-soft-navy card-hover flex flex-col justify-between space-y-4 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
             
             <div className="space-y-4">

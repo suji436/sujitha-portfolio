@@ -12,6 +12,7 @@ import {
   Award, 
   Briefcase, 
   Mail, 
+  Phone,
   Github, 
   Linkedin, 
   CheckCircle2 
@@ -33,6 +34,12 @@ export const ResumeModal = () => {
 
   if (!isResumeModalOpen) return null;
 
+  const emailAddress = profile.email || "sujisri73@gmail.com";
+  const phoneNumber = profile.phone || "+91 99430 63536";
+  const phoneTel = profile.phoneTel || "+919943063536";
+  const linkedInUrl = profile.linkedinUrl || "https://www.linkedin.com/in/sujitha-gurumoorthy-18989b39b/";
+  const githubUrl = profile.githubUrl || "https://github.com/suji436";
+
   const handlePrint = () => {
     window.print();
   };
@@ -49,7 +56,8 @@ export const ResumeModal = () => {
 SUJITHA GURUMOORTHY
 ${profile.tagline}
 Location: ${profile.location}
-Email: ${profile.email} | GitHub: ${profile.githubUrl} ${profile.linkedinUrl ? `| LinkedIn: ${profile.linkedinUrl}` : ''}
+Email: ${emailAddress} | Phone: ${phoneNumber}
+GitHub: ${githubUrl} | LinkedIn: ${linkedInUrl}
 
 EDUCATION:
 ${profile.educationLevel}
@@ -62,19 +70,24 @@ TECHNICAL SKILLS:
 - AI & Machine Learning: Machine Learning Fundamentals, Generative AI, AI Agents, Prompt Engineering, Gemini API, IBM Granite
 - Programming & Web: Python, HTML, CSS, JavaScript, Git & GitHub
 - Data & Analytics: Google Analytics, Microsoft Power BI, Exploratory Data Analysis
-- Cloud & Dev Tools: Google Cloud Learning, NVIDIA Developer Ecosystem, VS Code, Colab
+- Cloud & Dev Tools: Google Cloud Learning, NVIDIA Developer Ecosystem, VS Code, Google Colab
 
-KEY PROJECTS:
-1. Fake or Real URL Detection Using Machine Learning
-   - Engineered 15+ lexical/domain features and evaluated classification models (Random Forest, Logistic Regression) on phishing datasets.
-2. Smart AI Care & SmartCare AI using Gemini API
-   - Integrated Google Gemini API for medical symptom guidance, conversational triage, and patient note simplification with strict disclaimer framing.
+TECHNICAL PROJECTS:
+1. Smart AI Care
+   - Status: In Progress | Tech: Python, Gemini API, React, Tailwind CSS, REST API
+   - Engineered an AI-driven conversational health triage assistant for preliminary symptom checks, urgency classification, and health advisory tips with rigorous medical disclaimers.
+2. Fake or Real URL Detection Using Machine Learning
+   - Status: Completed | Tech: Python, Scikit-learn, Pandas, NumPy, Feature Extraction
+   - Trained supervised classification models (Random Forest, Logistic Regression) on 15+ engineered lexical and domain features to identify fraudulent phishing links with high accuracy.
 3. Gemini Research Agent
-   - Autonomous multi-step research agent breaking complex queries into structured summaries with verified citations.
+   - Status: In Progress | Tech: Python, Google Gemini API, Prompt Engineering, LangChain Workflows
+   - Autonomous multi-step research agent breaking complex queries into structured academic summaries with verified source citations.
 4. Finance AI using IBM Granite
-   - Financial document reasoning and metric parsing assistant leveraging IBM Granite foundation models.
+   - Status: In Progress | Tech: IBM Granite Foundation Models, Python, Financial EDA, Streamlit
+   - Financial document reasoning and metric parsing assistant leveraging IBM Granite models for balance sheet analysis.
 5. Cooperative Bank Leave Management System
-   - Role-based portal for employee leave requests, manager approvals, and balance auditing.
+   - Status: Completed | Tech: HTML5, CSS3, JavaScript, PHP / Node.js, MySQL
+   - Role-based administrative web application streamlining employee leave requests, manager approvals, audit trails, and balance tracking.
 
 VERIFIED CERTIFICATES & ACHIEVEMENTS:
 - Google Python Coding & Developer Learning
@@ -105,9 +118,9 @@ VERIFIED CERTIFICATES & ACHIEVEMENTS:
       <div className="relative w-full max-w-4xl rounded-3xl bg-white dark:bg-darkbg-card border border-lavender-200 dark:border-darkbg-border shadow-2xl overflow-hidden max-h-[92vh] flex flex-col print:border-none print:shadow-none print:max-h-full print:rounded-none">
         
         {/* Actions Bar (hidden during browser print) */}
-        <div className="p-4 sm:p-5 bg-gradient-to-r from-lavender-100/90 via-white to-lavender-50/70 dark:from-darkbg-surface dark:via-darkbg-card dark:to-darkbg-surface border-b border-lavender-200/70 dark:border-darkbg-border flex flex-wrap items-center justify-between gap-3 shrink-0 print:hidden">
+        <div className="p-4 sm:p-5 bg-gradient-to-r from-sky-50 via-white to-lavender-50 dark:from-navy-950 dark:via-darkbg-card dark:to-navy-950 border-b border-lavender-200/70 dark:border-darkbg-border flex flex-wrap items-center justify-between gap-3 shrink-0 print:hidden">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-lavender-700 text-white">
+            <div className="p-2 rounded-xl bg-sky-600 text-white">
               <FileText className="w-5 h-5" />
             </div>
             <div>
@@ -115,7 +128,7 @@ VERIFIED CERTIFICATES & ACHIEVEMENTS:
                 Resume & Profile Document
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                Current File: <span className="font-mono text-lavender-800 dark:text-lavender-300 font-semibold">{profile.resumeFileName}</span>
+                Current File: <span className="font-mono text-sky-700 dark:text-sky-300 font-semibold">{profile.resumeFileName}</span>
               </p>
             </div>
           </div>
@@ -124,10 +137,10 @@ VERIFIED CERTIFICATES & ACHIEVEMENTS:
             {/* Custom file upload button */}
             <button
               onClick={() => fileInputRef.current?.click()}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-white dark:bg-darkbg-surface text-slate-700 dark:text-slate-200 border border-lavender-200 dark:border-darkbg-border hover:bg-lavender-50 transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-white dark:bg-darkbg-surface text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-darkbg-border hover:bg-slate-50 dark:hover:bg-navy-800 transition-colors btn-hover"
               title="Replace or attach your own PDF resume"
             >
-              <Upload className="w-3.5 h-3.5 text-lavender-600" />
+              <Upload className="w-3.5 h-3.5 text-sky-600" />
               <span>Upload Custom PDF</span>
             </button>
             <input 
@@ -141,7 +154,7 @@ VERIFIED CERTIFICATES & ACHIEVEMENTS:
             {/* Print / Save as PDF */}
             <button
               onClick={handlePrint}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-lavender-700 text-white hover:bg-lavender-800 shadow-soft-purple transition-all"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-sky-600 hover:bg-sky-500 text-white shadow-soft-purple transition-all btn-hover"
               title="Print formatted resume or Save as PDF"
             >
               <Printer className="w-3.5 h-3.5" />
@@ -176,7 +189,7 @@ VERIFIED CERTIFICATES & ACHIEVEMENTS:
               <h1 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-slate-900">
                 {profile.name}
               </h1>
-              <p className="text-sm font-semibold text-purple-900 mt-1">
+              <p className="text-sm font-semibold text-sky-900 mt-1">
                 {profile.tagline}
               </p>
               <p className="text-xs text-slate-600 mt-1">
@@ -186,9 +199,10 @@ VERIFIED CERTIFICATES & ACHIEVEMENTS:
 
             <div className="text-xs text-slate-700 space-y-1 sm:text-right font-mono">
               <div>{profile.location}</div>
-              <div>{profile.email}</div>
+              <div>{emailAddress}</div>
+              <div>{phoneNumber}</div>
               <div>github.com/{profile.githubUsername}</div>
-              {profile.linkedinUrl && <div>{profile.linkedinUrl.replace('https://', '')}</div>}
+              {linkedInUrl && <div>{linkedInUrl.replace('https://', '')}</div>}
             </div>
           </div>
 
@@ -237,30 +251,30 @@ VERIFIED CERTIFICATES & ACHIEVEMENTS:
             </div>
           </div>
 
-          {/* Selected Technical Projects */}
+          {/* Technical Projects */}
           <div>
             <h2 className="text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-slate-300 pb-1 mb-2 font-mono">
-              Selected Technical Projects
+              Key Technical Projects
             </h2>
             <div className="space-y-3 text-xs">
               
+              <div>
+                <div className="flex items-center justify-between font-bold text-slate-900">
+                  <span>Smart AI Care</span>
+                  <span className="font-mono font-normal text-slate-500">Status: In Progress</span>
+                </div>
+                <p className="text-slate-700 mt-0.5 leading-relaxed">
+                  Engineered an assistive AI care guidance and triage assistant utilizing Google Gemini API, designing conversational symptom flows, clinical advisory disclaimers, and responsive user interfaces.
+                </p>
+              </div>
+
               <div>
                 <div className="flex items-center justify-between font-bold text-slate-900">
                   <span>Fake or Real URL Detection Using Machine Learning</span>
                   <span className="font-mono font-normal text-slate-500">Status: Completed</span>
                 </div>
                 <p className="text-slate-700 mt-0.5 leading-relaxed">
-                  Trained ML classification models (Random Forest, Logistic Regression) on 15+ engineered lexical and domain features to identify fraudulent phishing links with high accuracy.
-                </p>
-              </div>
-
-              <div>
-                <div className="flex items-center justify-between font-bold text-slate-900">
-                  <span>Smart AI Care & SmartCare AI using Gemini API</span>
-                  <span className="font-mono font-normal text-slate-500">Status: In Progress</span>
-                </div>
-                <p className="text-slate-700 mt-0.5 leading-relaxed">
-                  Engineered an assistive AI care guidance platform utilizing Google Gemini API, designing strict medical guardrails, symptom triage flows, and patient note simplification.
+                  Trained supervised ML classification models (Random Forest, Logistic Regression) on 15+ engineered lexical, domain, and structural features to identify fraudulent phishing links with high accuracy.
                 </p>
               </div>
 
